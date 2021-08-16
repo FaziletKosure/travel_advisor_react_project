@@ -4,10 +4,11 @@ import { AppBar, Toolbar, Typography, InputBase, Box } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 import useStyles from "./styles.js";
+import { green } from "@material-ui/core/colors";
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: "#006064" }}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" className={classes.title}>
           Travel Advisor
