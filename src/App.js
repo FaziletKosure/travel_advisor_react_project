@@ -37,15 +37,17 @@ const App = () => {
   }, [rating]);
 
   useEffect(() => {
-    setIsLoading(true);
-    console.log(coordinates, bounds);
-    getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
-      console.log(data);
-      setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
-      setFilteredPlaces([]);
-      setRating("");
-      setIsLoading(false);
-    });
+    if (bounds) {
+      setIsLoading(true);
+      console.log(coordinates, bounds);
+      getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+        console.log(data);
+        setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+        setFilteredPlaces([]);
+        setRating("");
+        setIsLoading(false);
+      });
+    }
   }, [type, coordinates, bounds]);
   return (
     <div>
